@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <h2>Pitagoras</h2>
+        <form action="">
+            <select id="pitagoras_selec">
+                <option value="hipotenusa">sacar hipotenusa</option>
+                <option value="cateto">sacar cateto</option>
+            </select>
+            <br>
+            <input type="number" id="cateto_a" placeholder="cateto a">
+            <br>
+            <input type="number" id="cateto_b" placeholder="cateto b">
+            <br>
+            <input type="number" id="hipotenusa" placeholder="hipotenusa">
+        </form>
+        <br>
+        <button type="button" onclick="modulo(selec_pitagoras.value)">ver lado</button>
+    </section>
+
+    <section>
+        <h2>razones trigonometricas</h2>
+        <figure>
+            <img src="./descarga (5).png" alt="" width="500">
+        </figure>
+        <form action="">
+            <label for="">
+                <span>que desea sacar</span>
+                <select id="razones_selec-sacar">
+                    <option value="hipotenusa">a (hipotenusa)</option>
+                    <option value="cateto opuesto">b (cateto opuesto)</option>
+                    <option value="cateto adyacente">c (cateto adyacente)</option>
+                </select>
+            </label>
+            <br>
+            <form action="">
+            <label for="">
+                <span>que dato tiene</span>
+                <br>
+                <select id="razones_selec-tiene">
+                    <option value="h">a (hipotenusa)</option>
+                    <option value="a">c (cateto A)</option>
+                    <option value="b">b (cateto O)</option>
+                </select>
+            </label>
+            <br>
+            <br>
+            <label for=" ">
+                <span>digite el angulo y el lado </span>
+            <br>
+            <input type="number" id="lado" placeholder="lado">
+            <br>
+            <input type="number" id="angulo" placeholder="angulo">
+        </label>
+    </form>
+    <br>
+    <button type="button" onclick="modulo_razones()">ver lado</button>
+    <div id="resultado"></div>
+    </section>
+
+    <canvas class="canvas" width="500" height="500">
+    </canvas>
+    <script src="./operaciones.js">
+    </script>
+</body>
+
+</html>
