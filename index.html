@@ -10,6 +10,16 @@
 
 <body>
     <section>
+        <!-- <h2>relle el formulario</h2>
+        <p>en parejas</p>
+        <form action="">
+            a<input type="number" id="a" placeholder="angulo a o cateto adyacente">  A<input type="number" id="A" placeholder="angulo A">
+            <br>
+            b<input type="number" id="b" placeholder="angulo b o cateto opuesto">  B<input type="number" id="B" placeholder="angulo B">
+            <br>
+            c<input type="number" id="c" placeholder="angulo c o hipotenusa">  C<input type="number" id="C" placeholder="angulo C">
+        </form> -->
+
         <h2>Pitagoras</h2>
         <form action="">
             <select id="pitagoras_selec">
@@ -33,38 +43,47 @@
             <img src="./descarga (5).png" alt="" width="500">
         </figure>
         <form action="">
-            <label for="">
-                <span>que desea sacar</span>
-                <select id="razones_selec-sacar">
+
+            <span>que desea sacar</span>
+            <select id="razones_selec-sacar">
+                <option value="lado">Un lado</option>
+                <option value="angulo">Un angulo</option>
+            </select>
+            <br>
+            <label for=" " id="razones_selec-tiene__angulo">
+                <span>digite el angulo </span>
+                <br>
+                <input type="number" id="angulo" placeholder="angulo">
+            </label>
+            <br>
+
+            <label for="" id="lado">
+                <span>que lado desea sacar</span>
+                <select id="razones_selec-sacar_lado">
                     <option value="hipotenusa">a (hipotenusa)</option>
                     <option value="cateto opuesto">b (cateto opuesto)</option>
                     <option value="cateto adyacente">c (cateto adyacente)</option>
                 </select>
             </label>
+
             <br>
             <form action="">
-            <label for="">
-                <span>que dato tiene</span>
-                <br>
-                <select id="razones_selec-tiene">
-                    <option value="h">a (hipotenusa)</option>
-                    <option value="a">c (cateto A)</option>
-                    <option value="b">b (cateto O)</option>
-                </select>
-            </label>
+                <label for="" id="lados">
+                    <span>que datos tienes, marca el dato y digita su valor</span>
+                    <br>
+                    <input type="checkbox" id="check_h" value="h" class="check_h">hipotenusa <input type="text"
+                        id="check_h-value" class="check_h" size="2">
+                    <br>
+                    <input type="checkbox" id="check_a" value="a" class="check_a">cateto adyacente <input type="text"
+                        id="check_a-value" class="check_a" size="2">
+                    <br>
+                    <input type="checkbox" id="check1_b" value="b" class="check_b">cateto opuesto <input type="text"
+                        id="check_b-value" class="check_b" size="2">
+                </label>
+            </form>
             <br>
-            <br>
-            <label for=" ">
-                <span>digite el angulo y el lado </span>
-            <br>
-            <input type="number" id="lado" placeholder="lado">
-            <br>
-            <input type="number" id="angulo" placeholder="angulo">
-        </label>
-    </form>
-    <br>
-    <button type="button" onclick="modulo_razones()">ver lado</button>
-    <div id="resultado"></div>
+            <button type="button" onclick="modulo_razones()">ver lado</button>
+            <div id="resultado"></div>
     </section>
 
     <canvas class="canvas" width="500" height="500">
