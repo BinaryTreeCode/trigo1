@@ -6,88 +6,162 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        .padre{
+            display: grid;
+            place-items: center;
+        }
+        body{
+            background-image: url(https://img.freepik.com/vector-gratis/fondo-dibujos-animados-elementos-matematicas_23-2148167806.jpg?w=2000);
+        }
+        body section {
+            padding-bottom: 100px;
+        }
+    </style>
 </head>
 
 <body>
-    <section>
-        <!-- <h2>relle el formulario</h2>
+    <!-- <h2>relle el formulario</h2>
         <p>en parejas</p>
         <form action="">
-            a<input type="number" id="a" placeholder="angulo a o cateto adyacente">  A<input type="number" id="A" placeholder="angulo A">
-            <br>
-            b<input type="number" id="b" placeholder="angulo b o cateto opuesto">  B<input type="number" id="B" placeholder="angulo B">
-            <br>
-            c<input type="number" id="c" placeholder="angulo c o hipotenusa">  C<input type="number" id="C" placeholder="angulo C">
-        </form> -->
+            a<input type="number" id="a" acente">  A<input type="number"   <br>
+            b<input type="number" id="b" esto">  B<input type="number"   <br>
+            c<input type="number" id="c" ">  C<input type="number" iform> -->
 
-        <h2>Pitagoras</h2>
-        <form action="">
-            <select id="pitagoras_selec">
-                <option value="hipotenusa">sacar hipotenusa</option>
-                <option value="cateto">sacar cateto</option>
-            </select>
-            <br>
-            <input type="number" id="cateto_a" placeholder="cateto a">
-            <br>
-            <input type="number" id="cateto_b" placeholder="cateto b">
-            <br>
-            <input type="number" id="hipotenusa" placeholder="hipotenusa">
-        </form>
-        <br>
-        <button type="button" onclick="modulo(selec_pitagoras.value)">ver lado</button>
-    </section>
-
-    <section>
-        <h2>razones trigonometricas</h2>
-        <figure>
-            <img src="./descarga (5).png" alt="" width="500">
-        </figure>
-        <form action="">
-
-            <span>que desea sacar</span>
-            <select id="razones_selec-sacar">
-                <option value="lado">Un lado</option>
-                <option value="angulo">Un angulo</option>
-            </select>
-            <br>
-            <label for=" " id="razones_selec-tiene__angulo">
-                <span>digite el angulo </span>
-                <br>
-                <input type="number" id="angulo" placeholder="angulo">
-            </label>
-            <br>
-
-            <label for="" id="lado">
-                <span>que lado desea sacar</span>
-                <select id="razones_selec-sacar_lado">
-                    <option value="hipotenusa">a (hipotenusa)</option>
-                    <option value="cateto opuesto">b (cateto opuesto)</option>
-                    <option value="cateto adyacente">c (cateto adyacente)</option>
-                </select>
-            </label>
-
-            <br>
+    <div class="padre">
+        <section class="hola">
+            <h2>Pitagoras</h2>
             <form action="">
-                <label for="" id="lados">
-                    <span>que datos tienes, marca el dato y digita su valor</span>
+                <select id="pitagoras_selec" class="hola">
+                    <option value="hipotenusa">sacar hipotenusa</option>
+                    <option value="cateto">sacar cateto</option>
+                </select>
+                <br>
+                <input type="number" id="cateto_a" placeholder="cateto a">
+                <br>
+                <input type="number" id="cateto_b" placeholder="cateto b">
+                <br>
+                <input type="number" id="hipotenusa" placeholder="hipotenusa">
+            </form>
+            <br>
+            <button type="button" onclick="modulo(selec_pitagoras.value)">ver lado</button>
+        </section>
+
+        <section style="display: contents;" id="hola">
+            <h2>razones trigonometricas</h2>
+            <figure>
+                <img src="./descarga (5).png" alt="" width="500">
+            </figure>
+            <form action="">
+
+                <span>que desea sacar</span>
+                <select id="razones_selec-sacar">
+                    <option value="lado">Un lado</option>
+                    <option value="angulo">Un angulo</option>
+                </select>
+                <br>
+                <label for=" " id="razones_selec-tiene__angulo">
+                    <span>digite el angulo </span>
                     <br>
-                    <input type="checkbox" id="check_h" value="h" class="check_h">hipotenusa <input type="text"
-                        id="check_h-value" class="check_h" size="2">
+                    <input type="number" id="angulo" placeholder="angulo">
+                </label>
+                <br>
+
+                <label for="" id="lado">
+                    <span>que lado desea sacar</span>
+                    <select id="razones_selec-sacar_lado">
+                        <option value="hipotenusa">a (hipotenusa)</option>
+                        <option value="cateto opuesto">b (cateto opuesto)</option>
+                        <option value="cateto adyacente">c (cateto adyacente)</option>
+                    </select>
+                </label>
+
+                <br>
+                <form action="">
+                    <label for="" id="lados">
+                        <span>que datos tienes, marca el dato y digita su valor</span>
+                        <br>
+                        <input type="checkbox" id="check_h" value="h" class="check_h">hipotenusa <input type="text"
+                            id="check_h-value" class="check_h" size="2">
+                        <br>
+                        <input type="checkbox" id="check_a" value="a" class="check_a">cateto adyacente <input
+                            type="text" id="check_a-value" class="check_a" size="2">
+                        <br>
+                        <input type="checkbox" id="check1_b" value="b" class="check_b">cateto opuesto <input type="text"
+                            id="check_b-value" class="check_b" size="2">
+                    </label>
+                </form>
+                <br>
+                <button type="button" onclick="modulo_razones()">ver lado</button>
+                <div id="resultado"></div>
+        </section>
+
+        <section class="hola" style="padding-top: 100px;">
+            <h2>ley de cosenos</h2>
+            <p>relle el formulario</p>
+            <form action="">
+                <label for="">
+                    <span>que datos tienes</span>
+                    <select name="" id="selec_cosenos">
+                        <option value="0">tienes los 3 lados</option>
+                        <option value="1">tienes dos lados y angulo</option>
+                    </select>
+                </label>
+                <br>
+                <label for="" id="label: tres lados">
+                    <samp>dijita los valores</samp>
                     <br>
-                    <input type="checkbox" id="check_a" value="a" class="check_a">cateto adyacente <input type="text"
-                        id="check_a-value" class="check_a" size="2">
+                    <input type="number" id="a" placeholder="lado a" class="0">
                     <br>
-                    <input type="checkbox" id="check1_b" value="b" class="check_b">cateto opuesto <input type="text"
-                        id="check_b-value" class="check_b" size="2">
+                    <input type="number" id="b" placeholder="lado b" class="0">
+                    <br>
+                    <input type="number" id="c" placeholder="lado c" class="0">
+                </label>
+                <br>
+
+                <label for="" id="label: dos lados y un angulo" style="display: none;">
+                    <samp>dijita los valores</samp>
+                    <br>
+                    <input type="number" id="a" placeholder="lado a" class="1">
+                    <br>
+                    <input type="number" id="b" placeholder="lado b" class="1">
+                    <br>
+                    <input type="number" id="angulo" placeholder="angulo" class="1">
                 </label>
             </form>
             <br>
-            <button type="button" onclick="modulo_razones()">ver lado</button>
-            <div id="resultado"></div>
-    </section>
+            <button type="button" onclick="ley_cosenos_modulo()">resultado</button>
+            <div id="resultado cosenos"></div>
+        </section>
 
-    <canvas class="canvas" width="500" height="500">
-    </canvas>
+        <section class="hola">
+            <h2>ley de senos</h2>
+            <p>relle el formulario</p>
+            <form action="">
+                <label for="">
+                    <span>que datos tienes</span>
+                    <select name="" id="selec_senos">
+                        <option value="0">una pareja y lado</option>
+                        <option value="1">una pareja y angulo</option>
+                    </select>
+                </label>
+                <br>
+                <label for="" id="label: tres lados">
+                    <samp>dijita los valores</samp>
+                    <br>
+                    <input type="number" placeholder="lado a" class="pareja">
+                    <br>
+                    <input type="number" placeholder="angulo A" class="pareja">
+                    <br>
+                    <input type="number" placeholder="el otro dato" class="pareja">
+                </label>
+            </form>
+            <br>
+            <button type="button" onclick="ley_senos_modulo()">resultado</button>
+            <div id="resultado senos"></div>
+        </section>
+    </div>
     <script src="./operaciones.js">
     </script>
 </body>

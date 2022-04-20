@@ -9,7 +9,7 @@ function modulo(type) {
     if (type == "hipotenusa") {
         h = Math.pow(a, 2) + Math.pow(b, 2);
         r = Math.sqrt(h);
-        hipotenusa.value = r.toFixed(2);
+        hipotenusa.value = r.toFixed(3);
     }
     else {
         if (a_id.value == '') {
@@ -26,7 +26,7 @@ function modulo(type) {
         h = hipotenusa.value;
         cateto_r = Math.pow(h, 2) - Math.pow(cateto, 2); //cateto_r resultante
         r = Math.sqrt(cateto_r);
-        input.value = r.toFixed(2);
+        input.value = r.toFixed(3);
     }
 }
 
@@ -109,11 +109,11 @@ function modulo_razones() {
             r = a; //a = cateto adyacente
             input = a_id;
         }
-        // input.value = r.toFixed(2);
-        // input2.value = lado_value.toFixed(2);
+        // input.value = r.toFixed(3);
+        // input2.value = lado_value.toFixed(3);
 
         const content = document.getElementById('resultado');
-        content.innerHTML = `${type2}= ${r.toFixed(2)}`;
+        content.innerHTML = `${type2}= ${r.toFixed(3)}`;
 
         if (type2 == "hipotenusa") {
             type2 = "cateto";
@@ -164,101 +164,88 @@ function visible() {
     }
 }
 
-// const a = document.getElementById("a");
-// const b = document.getElementById("b");
-// const c = document.getElementById("c");
+const selec_cosenos = document.getElementById("selec_cosenos");
+const cosenos_lados = document.getElementById("label: tres lados");
+const cosenos_angulo = document.getElementById("label: dos lados y un angulo");
 
-// const A = document.getElementById("A");
-// const B = document.getElementById("B");
-// const C = document.getElementById("C");
-
-// recto = false;
-// function lector() {
-//     a_value = { value: a.value, nombre: "cateto adyacente" };
-//     b_value = { value: b.value, nombre: "cateto opuesto" };
-//     c_value = { value: c.value, nombre: "hipotenusa" };
-
-//     A_value = { value: check_a.value, nombre: "angulo A" };
-//     B_value = { value: check_b.value, nombre: "angulo B" };
-//     C_value = { value: C.value, nombre: "angulo C" };
-
-//     lados = [a_value, b_value, c_value];
-//     angulos = [A_value, B_value, C_value];
-//     angulos_radianes = Map(angulos, Math.radianes);
-
-//     var sum, angulo, sum2, C_angulos;
-//     angulos.forEach(element => {
-//         if (element.value == 90) {
-//             agudo = true;
-//             sum += element.value;
-//         }
-//         if (sum < 180) {
-//             angulo = 180 - sum;
-//         }
-//         if (element.value == '') {
-//             sum2++;
-//         }
-//         if (sum2 == 1) {
-//             if (element.value == '') {
-//                 element.value = angulo;;
-//             }
-//         }
-//         if (element.value != '' && element.value != 0) {
-//             C_angulos++;
-//         }
-//     });
-
-//     var C_lados = lados.reduce(element => {
-//         if (element != '' && element != 0) {
-//             C_lados++;
-//         }
-//     });
-// }
-
-// if (recto == true) {
-//     if (C_lados == 2) {
-//         if (lados[2].value != '' && lados[2].value != 0) {
-
-//         }
-//     }
-//     else {
-
-//     }
-// }
+selec_cosenos.addEventListener("change", visible_cosenos, false);
 
 
-function ley_senos(anguloA, ladoA, angulo) {
-    if (lado == true) {
-        x = ((ladoA * Math.sin(Math.radianes(angulo)))
-            / Math.sin(Math.radianes(anguloA)));
-    } else {
-        x = (Math.asin(
-            (lado * Math.sin(anguloA)) / ladoA
-        ));
-        Math.grados(angulo);
+function visible_cosenos() {
+    v = selec_cosenos.value;
+    if (v == "0") { //tiene 3 lados
+        cosenos_lados.style.display = "block";
+        cosenos_angulo.style.display = "none";
     }
-    return x
-}
-
-function ley_senos() {
-    if (lado == true) {
-        (a.lado * Math.sin(Math.radianes(angulo)))
-            / Math.sin(Math.radianes(a.angulo));
-    } else {
-        Math.asin(
-            (lado * Math.sin(a.angulo)) / a.lado
-        );
-        Math.grados(a);
+    else { //tiene 2 lados y un angulo
+        cosenos_lados.style.display = "none";
+        cosenos_angulo.style.display = "block";
     }
 }
 
-function ley_cosenos(b, c, angulo) {
-    Math.sqrt((Math.pow(b, 2) + Math.pow(c, 2)) - 2 * b * c * Math.cos(Math.radianes(angulo)))
+const lados_elments = document.getElementsByClassName("0");
+const angulo_elments = document.getElementsByClassName("1");
+
+function ley_cosenos_lados(a, b, c) {
+    return Math.grados(Math.acos(
+        (Math.pow(a, 2) - Math.pow(b, 2) - Math.pow(c, 2)) /
+        (-2 * b * c)
+    ));
+}
+function ley_cosenos_angulo(b, c, angulo) {
+    return Math.sqrt((Math.pow(b, 2) + Math.pow(c, 2)) - 2 * b * c * Math.cos(Math.radianes(angulo)))
 }
 
 function ley_cosenos_modulo() {
-    if (a == true) {
-        ley_cosenos(b, c, angulo)
+    v = selec_cosenos.value;
+
+    a0 = parseFloat(lados_elments[0].value);
+    b0 = parseFloat(lados_elments[1].value);
+    c0 = parseFloat(lados_elments[2].value);
+
+    a1 = parseFloat(angulo_elments[0].value);
+    b1 = parseFloat(angulo_elments[1].value);
+    c1 = parseFloat(angulo_elments[2].value); //angulo
+
+    if (v == "0") { //tiene 3 lados
+        r = ley_cosenos_lados(a0, b0, c0)
     }
+    else { //tiene 2 lados y un angulo
+        r = ley_cosenos_angulo(a1, b1, c1)
+    }
+
+    let resultado = document.getElementById("resultado cosenos");
+    resultado.innerHTML = `el agulo es igual a ${r.toFixed(3)}`;
 }
 
+function ley_senos_lado(ladoA, anguloA, lado) {
+    return (Math.asin(
+        (lado * Math.sin(Math.radianes(anguloA))) / ladoA
+    ));
+}
+
+function ley_senos_angulo(ladoA, anguloA, angulo) {
+    return ((ladoA * Math.sin(Math.radianes(angulo)))
+        / Math.sin(Math.radianes(anguloA)));
+}
+
+const selec_senos = document.getElementById("selec_senos");
+const senos_elements = document.getElementsByClassName("pareja");
+
+
+function ley_senos_modulo() {
+    ladoA = parseFloat(senos_elements[0].value);
+    anguloA = parseFloat(senos_elements[1].value);
+    otro = parseFloat(senos_elements[2].value);
+
+    v = selec_senos.value;
+    if (v == "0") { // tiene un lado
+        r = ley_senos_lado(ladoA, anguloA, otro);
+        text = "angulo";
+    } else { // tiene un angulo
+        r = ley_senos_angulo(ladoA, anguloA, otro);
+        text = "lado";
+    }
+    let resultado = document.getElementById("resultado senos");
+    resultado.innerHTML = `el ${text} es igual a ${r.toFixed(3)}`;
+}
